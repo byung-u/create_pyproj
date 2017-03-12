@@ -1,4 +1,6 @@
-# create_pyproj
+create_pyproj
+-------------
+
 - create python project template like this.
 
 - Reference
@@ -32,3 +34,9 @@ Project/
 |   |-- project
 |-- setup.py
 ```
+
+Release
+-------------
+- 0.1.0 (current)
+  - Create project directory
+  - Create related files
