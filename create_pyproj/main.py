@@ -21,10 +21,18 @@ def process_options(args: List[str]) -> Options:
             "-p", "--path", metavar='create template file path',
             nargs=1, help="[optional] create template file path")
     # parser.add_argument('--text', action='store_true')
+
+    parser.add_argument(
+            "-a", "--auth", metavar='set auth name',
+            nargs=1, help="[optional] auth name")
+ 
     args = parser.parse_args()
 
     if args.path:
         options.path = args.path[0]
+
+    if args.auth:
+        options.auth = args.auth[0]
 
     return options
 
