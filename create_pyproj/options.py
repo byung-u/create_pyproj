@@ -1,6 +1,5 @@
 """create_pyproj create python project template command line tool."""
-import configparser
-from create_pyproj import defaults
+from datetime import datetime
 
 
 class Options:
@@ -8,3 +7,7 @@ class Options:
     def __init__(self) -> None:
         self.path = None  # type: str
         self.proj = None  # type: str
+        self.auth = ""  # type: str
+
+        now = datetime.now()
+        self.year = now.year  # type: int
