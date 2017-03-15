@@ -35,6 +35,43 @@ def create_python_template(options: Options) -> bool:
     create_file('README.md', options)
     create_file('TODO.md', options)
 
+    if not os.path.exists('docs'):
+        os.makedirs('docs')
+    create_file('./docs/conf.py', options)
+    create_file('./docs/generated', options)
+    create_file('./docs/index.rst', options)
+    create_file('./docs/installation.rst', options)
+    create_file('./docs/modlues.rst', options)
+    create_file('./docs/quickstart.rst', options)
+    project_rst = '%s.rst' % options.proj
+    create_file('./docs/project.rst', options)
+
+    if not os.path.exists(options.proj):
+        os.makedirs(options.proj)
+        test_path = './%s/test' % options.proj
+        if not os.path.exists(test_path):
+            os.makedirs(test_path)
+        test_file = '%s/__init__.py' % test_path
+        create_file(test_file, options)
+        test_file = '%s/test_main.py' % test_path
+        create_file(test_file, options)
+    proj_file = '%s/__init__.py' % options.proj
+    create_file(proj_file, options)
+    proj_file = '%s/exception.py' % options.proj
+    create_file(proj_file, options)
+    proj_file = '%s/main.py' % options.proj
+    create_file(proj_file, options)
+    proj_file = '%s/model.py' % options.proj
+    create_file(proj_file, options)
+
+    create_file('./requirements.txt', options)
+
+    if not os.path.exists('scripts/'):
+        os.makedirs('scripts/')
+    proj_file = './scripts/%s' % options.proj
+    create_file(proj_file, options)
+
+    create_file('./setup.py', options)
 
 def create_file(file_name, options):
     fw = open(file_name, 'w')
